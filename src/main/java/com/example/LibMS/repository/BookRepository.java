@@ -7,12 +7,10 @@ import java.util.List;
 
 public interface BookRepository extends JpaRepository<Book, Long> {
 
+    Book findByIsbn(String isbn);
+    List<Book> findByTitleIgnoreCase(String title);
+    List<Book> findByAuthorIgnoreCase(String author);
     List<Book> findByAvailability(boolean b);
 
-    List<Book> findByAuthorIgnoreCase(String author);
-
-    List<Book> findByTitleIgnoreCase(String title);
-
-    Book findByIsbn(String isbn);
 }
 
