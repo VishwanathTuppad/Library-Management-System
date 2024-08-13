@@ -3,8 +3,9 @@ Implement Library Management System
 A library has multiple departments and each departments has multiple books, but same book 
 does not exist in another department
 You need to develop a Library Management system and Leadership Board.
-Requirements:
-• Classes:
+Requirements.     
+
+• Classes: 
 1. Book: Represent a book with attributes like title, author, ISBN, genre, publication year, 
 Departments, and availability (boolean). Implement appropriate getters and setters.
 2. Library: Manage a collection of books in multiple departments. It should include 
@@ -19,7 +20,7 @@ duplicates based on ISBN).
 9. LibraryMenu: (Optional) Create a simple text-based menu for library operations (add, 
 remove, search, list, exit).
 
-• Unit Tests:
+• Unit Tests: 
 Write unit tests for all methods in the Book and Library classes using a testing framework 
 like JUnit (encouraged). This demonstrates the candidate's understanding of test-driven 
 development (TDD) principles.
