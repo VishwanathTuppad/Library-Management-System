@@ -1,9 +1,11 @@
 package com.example.LibMS.service.impl;
 
+import com.example.LibMS.dto.BookDTO;
 import com.example.LibMS.entity.Book;
 import com.example.LibMS.exception.NoDataFoundException;
 import com.example.LibMS.repository.BookRepository;
 import com.example.LibMS.service.LibraryService;
+import com.example.LibMS.util.MapperUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,11 +17,13 @@ public class LibraryServiceImpl implements LibraryService {
     @Autowired
     private BookRepository bookRepository;
 
-    public Book addBook(Book book) {
-        if (bookRepository.existsById(book.getId())) {
-            throw new RuntimeException("Book with ISBN " + book.getIsbn() + " already exists.");
+    public BookDTO addBook(BookDTO bookDTO) {
+        if (bookRepository.existsById(bookDTO.getId())) {
+            throw new RuntimeException("Book with ISBN " + bookDTO.getIsbn() + " already exists.");
         }
-        return bookRepository.save(book);
+        Book book=MapperUtil.convertBookDtoToEntity(bookDTO);
+        return MapperUtil.convertBookEntityToDto(bookRepository.save(book));
+
     }
 
     public void removeBook(String isbn) {
@@ -31,36 +35,37 @@ public class LibraryServiceImpl implements LibraryService {
         }
     }
 
-    public List<Book> findBookByTitle(String title) {
+    public List<BookDTO> findBookByTitle(String title) {
         List<Book> books = bookRepository.findByTitleIgnoreCase(title);
         if (books.isEmpty()) {
             throw new NoDataFoundException("No books found with title: " + title);
         }
-        return books;
+        return MapperUtil.convertBookEntityToDto(books);
+
     }
 
-    public List<Book> findBookByAuthor(String author) {
+    public List<BookDTO> findBookByAuthor(String author) {
         List<Book> books = bookRepository.findByAuthorIgnoreCase(author);
         if (books.isEmpty()) {
             throw new NoDataFoundException("No books found by author: " + author);
         }
-        return books;
+        return MapperUtil.convertBookEntityToDto(books);
     }
 
-    public List<Book> listAllBooks() {
+    public List<BookDTO> listAllBooks() {
         List<Book> books = bookRepository.findAll();
         if (books.isEmpty()) {
             throw new NoDataFoundException("No books found in the library.");
         }
-        return books;
+        return MapperUtil.convertBookEntityToDto(books);
     }
 
-    public List<Book> listAvailableBooks() {
+    public List<BookDTO> listAvailableBooks() {
         List<Book> books = bookRepository.findByAvailability(true);
         if (books.isEmpty()) {
             throw new NoDataFoundException("No available books found in the library.");
         }
-        return books;
+        return MapperUtil.convertBookEntityToDto(books);
     }
 }
 

@@ -1,15 +1,16 @@
 package com.example.LibMS.service;
 
+import com.example.LibMS.dto.BookDTO;
 import com.example.LibMS.entity.Book;
 
 import java.util.List;
 
 public interface LibraryService {
-    Book addBook(Book book);
+    BookDTO addBook(BookDTO bookDTO);
     void removeBook(String isbn);
-    List<Book> findBookByTitle(String title);
-    List<Book> findBookByAuthor(String author);
-    List<Book> listAllBooks();
-    List<Book> listAvailableBooks();
+    List<BookDTO> findBookByTitle(String title);
+    List<BookDTO> findBookByAuthor(String author);
+    List<BookDTO> listAllBooks();
+    List<BookDTO> listAvailableBooks();
 
 }
