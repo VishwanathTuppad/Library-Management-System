@@ -1,7 +1,6 @@
-package com.example.LibMS.service;
+package com.vishwa.library_management_system.service;
 
-import com.example.LibMS.dto.BookDTO;
-import com.example.LibMS.entity.Book;
+import com.vishwa.library_management_system.dto.BookDTO;
 
 import java.util.List;
 

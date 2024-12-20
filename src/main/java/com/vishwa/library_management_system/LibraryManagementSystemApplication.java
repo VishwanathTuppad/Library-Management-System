@@ -1,13 +1,13 @@
-package com.example.LibMS;
+package com.vishwa.library_management_system;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class LMSApplication {
+public class LibraryManagementSystemApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(LMSApplication.class, args);
+		SpringApplication.run(LibraryManagementSystemApplication.class, args);
 	}
 
 }

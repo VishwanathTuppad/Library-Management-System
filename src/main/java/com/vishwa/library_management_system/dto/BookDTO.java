@@ -1,4 +1,4 @@
-package com.example.LibMS.dto;
+package com.vishwa.library_management_system.dto;
 
 
 import lombok.AllArgsConstructor;

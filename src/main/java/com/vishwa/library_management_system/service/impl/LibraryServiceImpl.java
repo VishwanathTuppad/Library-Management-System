@@ -1,11 +1,11 @@
-package com.example.LibMS.service.impl;
+package com.vishwa.library_management_system.service.impl;
 
-import com.example.LibMS.dto.BookDTO;
-import com.example.LibMS.entity.Book;
-import com.example.LibMS.exception.NoDataFoundException;
-import com.example.LibMS.repository.BookRepository;
-import com.example.LibMS.service.LibraryService;
-import com.example.LibMS.util.MapperUtil;
+import com.vishwa.library_management_system.dto.BookDTO;
+import com.vishwa.library_management_system.entity.Book;
+import com.vishwa.library_management_system.exception.NoDataFoundException;
+import com.vishwa.library_management_system.repository.BookRepository;
+import com.vishwa.library_management_system.service.LibraryService;
+import com.vishwa.library_management_system.util.MapperUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,9 +18,9 @@ public class LibraryServiceImpl implements LibraryService {
     private BookRepository bookRepository;
 
     public BookDTO addBook(BookDTO bookDTO) {
-        if (bookRepository.existsById(bookDTO.getId())) {
-            throw new RuntimeException("Book with ISBN " + bookDTO.getIsbn() + " already exists.");
-        }
+//        if (bookRepository.existsById(bookDTO.getId())) {
+//            throw new BookExistsException("Book with ID " + bookDTO.getIsbn() + " already exists.");
+//        }
         Book book=MapperUtil.convertBookDtoToEntity(bookDTO);
         return MapperUtil.convertBookEntityToDto(bookRepository.save(book));
 
@@ -31,7 +31,7 @@ public class LibraryServiceImpl implements LibraryService {
         if (book != null) {
             bookRepository.delete(book);
         } else {
-            throw new RuntimeException("Book with ISBN " + isbn + " not found.");
+            throw new NoDataFoundException("Book with ISBN " + isbn + " not found.");
         }
     }
 

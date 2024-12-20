@@ -1,7 +1,7 @@
-package com.example.LibMS.util;
+package com.vishwa.library_management_system.util;
 
-import com.example.LibMS.dto.BookDTO;
-import com.example.LibMS.entity.Book;
+import com.vishwa.library_management_system.dto.BookDTO;
+import com.vishwa.library_management_system.entity.Book;
 
 import java.util.Collections;
 import java.util.List;
@@ -31,7 +31,6 @@ public class MapperUtil {
         if (books == null || books.isEmpty()) {
             return Collections.emptyList();
         }
-
         return books.stream().map(book -> {
             BookDTO bookDTO = new BookDTO();
             bookDTO.setId(book.getId());
@@ -52,7 +51,7 @@ public class MapperUtil {
             return null;
         }
         Book book = new Book();
-        book.setId(bookDTO.getId());
+       // book.setId(bookDTO.getId());
         book.setTitle(bookDTO.getTitle());
         book.setAuthor(bookDTO.getAuthor());
         book.setIsbn(bookDTO.getIsbn());
