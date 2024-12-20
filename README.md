@@ -1,6 +1,6 @@
 # Library Management System
 
-This is Library Management System it has multiple departments and each departments has multiple books, but same book does not exist in another department.
+This is Library Management System it has multiple departments and each departments has multiple books, but same book does not exist in another department. Enables tracking and management of books department-wise. Ensures a clear and organized inventory without duplications. Designed with clean coding standards to accommodate future enhancements.
 
 ## Built-In Reliability
 
