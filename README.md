@@ -2,6 +2,12 @@
 
 This is Library Management System it has multiple departments and each departments has multiple books, but same book does not exist in another department.
 
+## Built-In Reliability
+
++ **Exception Handling:** Ensures smooth operation by gracefully handling errors and providing meaningful feedback to users.
++ **Column Constraints and Patterns:** Enforces data integrity through predefined rules and validations.
++ **Logging:** Maintains detailed logs to track system activities and assist in debugging and monitoring.
+
 ## Features
 
 + **Book Entity:** Represent a book with attributes like title, author, ISBN, genre, publication year, Departments, and availability (boolean).
