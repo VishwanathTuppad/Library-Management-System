@@ -22,7 +22,7 @@ public class MapperUtil {
         bookDTO.setGenre(book.getGenre());
         bookDTO.setPublicationYear(book.getPublicationYear());
         bookDTO.setDepartment(book.getDepartment());
-        bookDTO.setAvailability(book.isAvailability());
+        bookDTO.setAvailability(book.getAvailability());
         return bookDTO;
     }
 
@@ -40,7 +40,7 @@ public class MapperUtil {
             bookDTO.setGenre(book.getGenre());
             bookDTO.setPublicationYear(book.getPublicationYear());
             bookDTO.setDepartment(book.getDepartment());
-            bookDTO.setAvailability(book.isAvailability());
+            bookDTO.setAvailability(book.getAvailability());
             return bookDTO;
         }).collect(Collectors.toList());
     }
@@ -58,7 +58,7 @@ public class MapperUtil {
         book.setGenre(bookDTO.getGenre());
         book.setPublicationYear(bookDTO.getPublicationYear());
         book.setDepartment(bookDTO.getDepartment());
-        book.setAvailability(bookDTO.isAvailability());
+        book.setAvailability(bookDTO.getAvailability());
         return book;
     }
 }

@@ -10,6 +10,13 @@ public interface LibraryService {
     List<BookDTO> findBookByTitle(String title);
     List<BookDTO> findBookByAuthor(String author);
     List<BookDTO> listAllBooks();
-    List<BookDTO> listAvailableBooks();
+    List<BookDTO> listAvailableBooks(String data);
+
+    List<BookDTO> listAllSortedBooks(String sortingPram, boolean desOrAse);
+    List<BookDTO> paginationOfBooks(int pageNum, int numOfRecordsPerPage);
+    List<BookDTO> paginationOfBooksAndSortByParam(int pageNum, int numOfRecordsPerPage,
+                                                  String sortingPram, boolean desOrAse);
+
+
 
 }

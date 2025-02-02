@@ -57,12 +57,32 @@ public class LibraryController {
     }
 
     @GetMapping("/list/available")
-    public ResponseEntity<List<BookDTO>> listAvailableBooks() {
-        List<BookDTO> books = libraryService.listAvailableBooks();
+    public ResponseEntity<List<BookDTO>> listAvailableBooks(@RequestParam String data) {
+        List<BookDTO> books = libraryService.listAvailableBooks(data);
 //        if (books.isEmpty()) {
 //            return ResponseEntity.noContent().build();
 //        }
         return ResponseEntity.ok(books);
+    }
+
+
+    @GetMapping("sortWay")
+    public ResponseEntity<List<BookDTO>> listAllSortedBooks(@RequestParam String sortingPram, @RequestParam boolean desOrAse){
+        List<BookDTO> books = libraryService.listAllSortedBooks(sortingPram,desOrAse);
+        return new ResponseEntity<>(books, HttpStatus.OK);
+    }
+
+    @GetMapping("pagination")
+    public ResponseEntity<List<BookDTO>> paginationOfBooks(@RequestParam int pageNum, @RequestParam int numOfRecordsPerPage){
+        List<BookDTO> books = libraryService.paginationOfBooks(pageNum-1,numOfRecordsPerPage);
+        return new ResponseEntity<>(books, HttpStatus.OK);
+    }
+
+    @GetMapping("both")
+    public ResponseEntity<List<BookDTO>> paginationOfBooksAndSortByParam(@RequestParam int pageNum, @RequestParam int numOfRecordsPerPage,
+                                                                         @RequestParam String sortingPram, @RequestParam boolean desOrAse){
+        List<BookDTO> books = libraryService.paginationOfBooksAndSortByParam(pageNum-1,numOfRecordsPerPage,sortingPram,desOrAse);
+        return new ResponseEntity<>(books, HttpStatus.OK);
     }
 }
 

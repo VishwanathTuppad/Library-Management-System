@@ -44,7 +44,7 @@ public class BookDTO {
     @Size(min = 2, max = 50, message = "Department must be between 2 and 50 characters")
     private String department;
 
-    private boolean availability;
+    private String availability;
 
     // Getters and Setters
 }

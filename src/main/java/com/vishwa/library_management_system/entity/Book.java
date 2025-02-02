@@ -7,9 +7,6 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Table
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,5 +17,5 @@ public class Book {
     private String genre;
     private int publicationYear;
     private String department;
-    private boolean availability;
+    private String availability;
 }
